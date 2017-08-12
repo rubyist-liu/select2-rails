@@ -4810,8 +4810,10 @@ S2.define('select2/defaults',[
       function match(a) {
         return DIACRITICS[a] || a;
       }
-
-      return text.replace(/[^\u0000-\u007E]/g, match);
+      if (text != null) {
+        return text.replace(/[^\u0000-\u007E]/g, match);
+      }
+      return "";
     }
 
     function matcher (params, data) {
